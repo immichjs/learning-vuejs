@@ -9,7 +9,7 @@
 
     <div v-for="(cliente, index) in clientes" :key="cliente.id">
       <h1>{{ index + 1 }}</h1>
-      <Cliente :cliente="cliente"/>
+      <Cliente :cliente="cliente" @deleteMe="userDelete($event)"/>
     </div>
   </div>
 </template>
@@ -69,6 +69,12 @@ export default {
         this.idadeField = ''
         this.onError = false
       }
+    },
+    userDelete($event) {
+      console.log('Recebendo evento')
+      let id = $event.idClient
+      let newArray = this.clientes.filter(cliente => cliente.id != id)
+      this.clientes = newArray
     }
   }
 }
