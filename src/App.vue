@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <button class="p-5 bg-red-300">Consegui e.e</button>
+
     <h3>Cadastrar Clientes</h3>
     <small class="nome-erro" v-show="onError">O nome é inválido, tente novamente</small><br>
     <input type="text" placeholder="nome" v-model="nomeField">
