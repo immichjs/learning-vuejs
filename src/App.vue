@@ -1,24 +1,45 @@
 <template>
   <div id="app">
     <h1>Guia Clientes</h1>
-    <Cliente/>
-    <hr>
-      <h4>Lista de produtos</h4>
-    <hr>
-    <Produto/>
+    <Cliente :cliente="clienteMich"/>
+    <Cliente :cliente="clienteNicky"/>
+    <Cliente :cliente="clienteHarder"/>
+    <Cliente :cliente="clienteJuh"/>
   </div>
 </template>
 
 <script>
 
 import Cliente from './components/Cliente'
-import Produto from './components/Produto'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      clienteMich: {
+        nome: 'Michel França',
+        email: 'mich@gmail.com',
+        idade: 19
+      },
+      clienteNicky: {
+          nome: 'Nicole Cristyne',
+          email: 'nicky@gmail.com',
+          idade: 18
+      },
+      clienteHarder: {
+          nome: 'Júlia Harder',
+          email: 'harder@gmail.com',
+          idade: 17
+      },
+      clienteJuh: {
+          nome: 'Júlia Roberta',
+          email: 'juh@gmail.com',
+          idade: 17
+      }
+    }
+  },
   components: {
     Cliente,
-    Produto
   }
 }
 </script>

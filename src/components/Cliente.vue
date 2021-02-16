@@ -1,25 +1,31 @@
 <template>
     <div id="cliente">
-        <h2 id="cliente-nome">Cliente Aqui - Componente aqui</h2>
-        <h3>Descrição do cliente: </h3>
+        <h4>Nome: {{ cliente.nome }}</h4>
+        <p>Email: {{ cliente.email }}</p>
+        <p>Idade: {{ cliente.idade }}</p>
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+        }
+    },
+    props: {
+        nome: String,
+        email: String,
+        idade: Number,
+        cliente: Object
+    }
 }
 </script>
 
 <style scoped>
     #cliente {
-        color: green;
-        background-color: rgba(0, 0, 0, 0.1);
-        height: 120px;
+        background: #ECE5E3;
         max-width: 600px;
-    }
-
-    #cliente-nome {
-        color: #fff;
+        padding: 2rem;
+        margin-top: 1.5rem;
     }
 </style>
