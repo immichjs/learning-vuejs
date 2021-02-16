@@ -1,10 +1,15 @@
 <template>
   <div id="app">
-    <h1>Guia Clientes</h1>
-    <Cliente :cliente="clienteMich" :showIdade="true"/>
-    <Cliente :cliente="clienteNicky" :showIdade="true"/>
-    <Cliente :cliente="clienteHarder" :showIdade="false"/>
-    <Cliente :cliente="clienteJuh" :showIdade="false"/>
+    <h3>Cadastrar Clientes</h3>
+    <input type="text" placeholder="nome" v-model="nomeField">
+    <input type="email" placeholder="email" v-model="emailField">
+    <input type="number" placeholder="idade" v-model="idadeField">
+    <button @click="cadastrarUsuario">Cadastrar</button>
+
+    <div v-for="(cliente, index) in clientes" :key="cliente.id">
+      <h1>{{ index + 1 }}</h1>
+      <Cliente :cliente="cliente"/>
+    </div>
   </div>
 </template>
 
@@ -16,33 +21,55 @@ export default {
   name: 'App',
   data() {
     return {
-      clienteMich: {
-        nome: 'Michel França',
-        email: 'mich@gmail.com',
-        idade: 19
-      },
-      clienteNicky: {
+      nomeField: '',
+      emailField: '',
+      idadeField: 0,
+      clientes: [
+        {
+          id: 1,
+          nome: 'Michel França',
+          email: 'mich@gmail.com',
+          idade: 19
+        },
+        {
+          id: 2,
           nome: 'Nicole Cristyne',
           email: 'nicky@gmail.com',
           idade: 18
-      },
-      clienteHarder: {
+        },
+        {
+          id: 3,
           nome: 'Júlia Harder',
           email: 'harder@gmail.com',
           idade: 17
-      },
-      clienteJuh: {
+        },
+        {
+          id: 4,
           nome: 'Júlia Roberta',
           email: 'juh@gmail.com',
           idade: 17
-      }
+        },
+      ]
     }
   },
   components: {
-    Cliente,
+    Cliente
+  },
+  methods: {
+    cadastrarUsuario() {
+      this.clientes.push({ nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now() })
+      this.nomeField = ''
+      this.emailField = ''
+      this.idadeField = ''
+    }
   }
 }
 </script>
 
 <style>
+  .input-text {
+    padding: 10px;
+    margin-right: 5px;
+  }
+
 </style>
