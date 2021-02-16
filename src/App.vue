@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <h1>Guia Clientes</h1>
-    <Cliente :cliente="clienteMich"/>
-    <Cliente :cliente="clienteNicky"/>
-    <Cliente :cliente="clienteHarder"/>
-    <Cliente :cliente="clienteJuh"/>
+    <Cliente :cliente="clienteMich" :showIdade="true"/>
+    <Cliente :cliente="clienteNicky" :showIdade="true"/>
+    <Cliente :cliente="clienteHarder" :showIdade="false"/>
+    <Cliente :cliente="clienteJuh" :showIdade="false"/>
   </div>
 </template>
 
