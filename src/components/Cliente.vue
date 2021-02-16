@@ -7,6 +7,7 @@
         <!-- <p v-show="showIdade">Idade: {{ cliente.idade }}</p>  -->
         <button @click="changeColor($event)">Mudar cor</button>
         <button @click="emitirEventoDelete">Deletar</button>
+        <h4>id especial: {{ specialId }}</h4>
     </div>
 </template>
 
@@ -38,6 +39,11 @@ export default {
         emailProcess(value) {
             return value.toUpperCase()
         } 
+    },
+    computed: {
+        specialId() {
+            return (this.cliente.email + this.cliente.nome + this.cliente.id).toUpperCase()
+        }
     }
 }
 </script>
