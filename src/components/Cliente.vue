@@ -1,7 +1,7 @@
 <template>
     <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <h4>Nome: {{ cliente.nome }}</h4>
-        <p>Email: {{ cliente.email }}</p>
+        <p>Email: {{ cliente.email | emailProcess }}</p>
         <p v-if="showIdade">Idade: {{ cliente.idade }}</p>
         <p v-else>O usuário escondeu a idade</p>
         <!-- <p v-show="showIdade">Idade: {{ cliente.idade }}</p>  -->
@@ -33,6 +33,11 @@ export default {
         testar() {
             alert('Testando método')
         }
+    },
+    filters: {
+        emailProcess(value) {
+            return value.toUpperCase()
+        } 
     }
 }
 </script>
